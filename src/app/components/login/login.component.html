@@ -1,0 +1,64 @@
+<div class="modal-content">
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h4 class="modal-title">Authentication</h4>
+      <button type="button" class="btn-close" aria-label="Close" ></button>
+    </div>
+  
+    <!-- Modal Body with Tabs -->
+    <div class="modal-body">
+      <!-- Tabs for Login and Register -->
+      <ul class="nav nav-tabs" id="authTabs" role="tablist">
+        <!-- Login Tab -->
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
+        </li>
+        <!-- Register Tab -->
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="register-tab" data-bs-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+        </li>
+      </ul>
+  
+      <!-- Tab Content (Login Form and Register Form) -->
+      <div class="tab-content" id="authTabsContent">
+        <!-- Login Form -->
+        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+          <form (ngSubmit)="onLogin()">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="loginEmail" [(ngModel)]="loginEmail" name="email" placeholder="Enter email" required>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="loginPassword" [(ngModel)]="loginPassword" name="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+  
+        <!-- Register Form -->
+        <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+          <form (ngSubmit)="onRegister()">
+            <div class="mb-3">
+              <label for="registerUsername" class="form-label">Username</label>
+              <input type="text" class="form-control" id="registerUsername" [(ngModel)]="registerUsername" name="username" placeholder="Enter username" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="registerEmail" [(ngModel)]="registerEmail" name="email" placeholder="Enter email" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="registerPassword" [(ngModel)]="registerPassword" name="password" placeholder="Enter password" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerAddress" class="form-label">Address</label>
+              <input type="text" class="form-control" id="registerAddress" [(ngModel)]="registerAddress" name="address" placeholder="Enter address" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

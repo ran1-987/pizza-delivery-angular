@@ -1,0 +1,63 @@
+<div class="row p-0 m-0">
+    <div *ngFor="let item of pizzas;let i = index" class="col-md-6 col-sm-12 col-lg-6 col-xl-6 col-xxl-4 p-1">
+        <div class="shadow-lg p-3 mb-5 bg-body rounded h-100 d-flex flex-column">
+
+            <div class="d-flex">
+                <img src="{{ item.imageUrl }}" alt="" class="card-img-top" style="height: 200px; width: 250px;">
+                <div class="card-body">
+                    <p class="name">{{ item.name }}</p>
+                    <div style="padding: 0em 1em;">
+                        <p>{{ item.description }}</p>
+                        <span class="badge bg-danger">$ {{ item.price }}</span>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quantity input section -->
+            <div class="d-flex " style="align-items: center;
+    justify-content: space-between;">
+
+                <div class="input-group p-1" style="max-width: 250px;">
+                    <span class="input-group-prepend">
+                        <button type="button" class="btn btn-outline-secondary btn-number" data-type="minus"
+                            data-field="quant[1]"
+                            style="border-right: none; border-top-right-radius: 0px; border-bottom-right-radius: 0px;"
+                            (click)="decreaseQuantity(i)">
+                            <i class="bi bi-dash-circle-dotted"></i>
+                        </button>
+                    </span>
+                    <input type="text" name="quant[1]" class="form-control input-number" value="0" min="1" max="10"
+                        [value]="pizzaQuantities[i]"
+                        style="text-align: center; border-top-color: red; border-bottom-color: red;font-size: larger;">
+                    <span class="input-group-append">
+                        <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus"
+                            data-field="quant[1]"
+                            style="border-left: none; border-top-left-radius: 0px; border-bottom-left-radius: 0px;"
+                            (click)="increaseQuantity(i)">
+                            <i class="bi bi-plus-circle-dotted"></i>
+                        </button>
+                    </span>
+                </div>
+
+                <div class="mt-2 text-center">
+                    <span class="text-success" style="font-size: larger;">Total: ${{ calculateTotalPrice(i) | number:'1.2-2' }}</span>
+                    <!-- Display total price -->
+                </div>
+            </div>
+
+            <!-- Add button at the bottom -->
+            <div class="mt-auto">
+                <button class="btn btn-outline-info w-100" type="button" (click)="placeOrder()">Place
+                    Order</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div> -->

@@ -1,0 +1,23 @@
+
+
+<div class="modal-header">
+    <h4 class="modal-title">Order Summary</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="dismissModal()"></button>
+  </div>
+  <div class="modal-body">
+    <div *ngIf="pizzaData && pizzaData.length">
+      <ul>
+        <li *ngFor="let pizza of pizzaData">
+          <strong>{{ pizza.name }}</strong> (x{{ pizza.quantity }}) - ${{ pizza.total }}
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="!pizzaData || pizzaData.length === 0">
+      <p>No pizzas selected</p>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="dismissModal()">Close</button>
+    <button type="button" class="btn btn-primary" (click)="closeModal()">Confirm Order</button>
+  </div>
+  
